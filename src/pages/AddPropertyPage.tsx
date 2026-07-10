@@ -117,7 +117,7 @@ export default function AddPropertyPage() {
 
         <form onSubmit={handleSubmit} className="space-y-8 bg-white p-8 sm:p-10 rounded-3xl border border-slate-150 shadow-sm">
           
-          {/* Section 1: Core Details */}
+          {/* Section 1 start: Core Details */}
           <div className="space-y-5">
             <h3 className="font-extrabold text-slate-800 text-base border-b border-slate-50 pb-3 flex items-center gap-2">
               <Building size={18} className="text-gold-500" /> Core Information
