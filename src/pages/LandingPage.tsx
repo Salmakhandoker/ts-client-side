@@ -50,7 +50,7 @@ export default function LandingPage() {
   useEffect(() => {
     const fetchFeatured = async () => {
       try {
-        const res = await fetch("/api/properties?limit=4");
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/properties?limit=4`);
         if (res.ok) {
           const data = await res.json();
           setProperties(data.properties);
