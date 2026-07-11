@@ -27,7 +27,12 @@ export default function DetailsPage() {
       setLoading(true);
       setError(null);
       try {
-        const res = await fetch(`/api/properties/${id}`);
+      const res = await fetch(
+  `${import.meta.env.VITE_API_URL}/api/properties/${id}`,
+  {
+    credentials: "include",
+  }
+);
         if (!res.ok) {
           throw new Error(res.status === 404 ? "Property not found" : "Failed to load details");
         }

@@ -23,7 +23,12 @@ export default function ManagePropertiesPage() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch("/api/properties/my-properties");
+      const res = await fetch(
+  `${import.meta.env.VITE_API_URL}/api/properties/my-properties`,
+  {
+    credentials: "include",
+  }
+);
       if (res.ok) {
         const data = await res.json();
         setMyProperties(data);
@@ -50,9 +55,16 @@ export default function ManagePropertiesPage() {
     }
 
     try {
-      const res = await fetch(`/api/properties/${id}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+  `${import.meta.env.VITE_API_URL}/api/properties/${id}`,
+  {
+    method: "DELETE",
+    credentials: "include",
+  }
+);
+      // const res = await fetch(`/api/properties/${id}`, {
+      //   method: "DELETE",
+      // });
 
       if (res.ok) {
         // Remove from local state

@@ -45,7 +45,12 @@ export default function ExplorePage() {
         queryParams.append("page", page);
         queryParams.append("limit", "8");
 
-        const res = await fetch(`/api/properties?${queryParams.toString()}`);
+        // const res = await fetch(`/api/properties?${queryParams.toString()}`);
+        const res = await fetch(
+  `${import.meta.env.VITE_API_URL}/api/properties?${queryParams.toString()}`,
+  {
+    credentials: "include",
+  });
         if (res.ok) {
           const data = await res.json();
           setProperties(data.properties);
